@@ -33,6 +33,12 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 ]
 
 
+grails.plugin.springsecurity.filterChain.chainMap = [
+ 	[pattern: '/api/v1/cliente/**', filters:'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter',access: 'ROLE_SUPERVISOR'],
+	[pattern: '/**', filters:'JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter']
+]
+
+
 
 
 grails.plugin.springsecurity.rest.logout.endpointUrl = '/api/logout'
