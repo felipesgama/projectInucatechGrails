@@ -16,7 +16,7 @@ class UrlMappings {
 
 
         post "/api/v1/cliente/$controller"(action:"save")
-        get "/api/v11cliente/$controller/$id(.$format)?"(action:"show")
+        get "/api/v1/cliente/$controller/$id(.$format)?"(action:"show")
         get "/api/v1/cliente/$controller/(.$format)?"(action:"index")
         put "/api/v1/cliente/$controller/$id"(action:"update")
         delete "/api/v1/cliente/$controller/$id(.$format)?"(action:"delete")

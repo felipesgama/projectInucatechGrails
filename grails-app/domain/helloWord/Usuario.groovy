@@ -24,6 +24,8 @@ class Usuario implements Serializable {
     String cpf;
     Date data_nascimento;
     String telefone;
+
+    static hasMany = [enderecoUsuarios: EnderecoUsuario]
     
 
 
