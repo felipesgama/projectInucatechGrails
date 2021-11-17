@@ -20,7 +20,9 @@ grails.plugin.springsecurity.interceptUrlMap = [
 	[pattern: '/**/favicon.ico', access: ['permitAll']],
 	[pattern: '/usuario/**',  access: ['permitAll']],
 	[pattern: '/cadastro/**',  access: ['permitAll']],
+	[pattern: '/cadastroLojista/**',  access: ['permitAll']],
 	[pattern: '/login/**',  access: ['permitAll']],
+	[pattern: "/api/v1/lojista/**", access: ['ROLE_LOJISTA']],
 	[pattern: '/api/v1/cliente/**',    access: ['ROLE_CLIENTE']],
 ]
 
@@ -36,6 +38,7 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 
 grails.plugin.springsecurity.filterChain.chainMap = [
  	[pattern: '/api/v1/cliente/**', filters:'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter',access: 'ROLE_CLIENTE'],
+	 [pattern: '/api/v1/lojista/**', filters:'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter',access: 'ROLE_LOJISTA'],
 	[pattern: '/**', filters:'JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter']
 ]
 

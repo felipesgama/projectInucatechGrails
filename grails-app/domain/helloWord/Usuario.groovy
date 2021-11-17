@@ -25,7 +25,7 @@ class Usuario implements Serializable {
     Date data_nascimento;
     String telefone;
 
-    static hasMany = [enderecoUsuarios: EnderecoUsuario]
+    static hasMany = [enderecoUsuarios: EnderecoUsuario,lojas: LojaUsuario]
     
 
 

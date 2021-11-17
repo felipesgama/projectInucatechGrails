@@ -13,16 +13,41 @@ class EnderecoController {
     def enderecoService;
     def springSecurityService;
 
-    def index(String cep){
+    def index(){
         def id =  springSecurityService.principal.id;
         def result = enderecoService.listar(id);
         render result as JSON;
     }
 
-    def show(){
-        def id =  springSecurityService.principal.id;
-        def result = enderecoService.listar(id);
+    def show(String id){
+        def user_id =  springSecurityService.principal.id;
+        def result = enderecoService.show(user_id,id);
         render result as JSON;
+    }
+
+    def delete(String id){
+        def user_id =  springSecurityService.principal.id;
+        def result = enderecoService.delete(user_id,id);
+        render result as JSON;
+    }
+
+    def update(String id){
+        def recebido = request.JSON;
+        if(!recebido.cep?.trim()  || !recebido.numero?.trim()   ){ 
+			response.status = 400;
+			render([codereturn: 999,
+                message: 'Requisição faltando dados'] as JSON)
+			return
+		}else{
+            def user_id =  springSecurityService.principal.id;
+            def result = enderecoService.editar(user_id,recebido,id);
+            response.status = 200;
+            if(result.codereturn>0){
+                response.status = 400;
+            }
+            render result as JSON;
+        }
+
     }
 
     def save(){
