@@ -23,6 +23,13 @@ class UrlMappings {
         delete "/api/v1/cliente/$controller/$id(.$format)?"(action:"delete")
 
  
+        post "/api/v1/lojista/$controller"(action:"save")
+        get "/api/v1/lojista/$controller/$id(.$format)?"(action:"show")
+        get "/api/v1/lojista/$controller/(.$format)?"(action:"index")
+        get "/api/v1/lojista/$controller"(action:"index")
+        put "/api/v1/lojista/$controller/$id"(action:"update")
+        delete "/api/v1/lojista/$controller/$id(.$format)?"(action:"delete")
+
 
 
         "/"(view:"/index")
